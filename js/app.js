@@ -1,4 +1,4 @@
-/* Hash router — works from file:// with no build step */
+/* Hash router: works from file:// with no build step */
 (function () {
   const routes = [
     [/^\/$/, 'home'],
@@ -47,7 +47,7 @@
     const hdr = EW.$('#header');
     hdr.classList.toggle('light', LIGHT_HEADER.includes(name));
     EW.setActiveNav(path);
-    document.title = `EcoWealth — ${TITLES[name] || 'Solar'}`;
+    document.title = `EcoWealth | ${TITLES[name] || 'Solar'}`;
     if (view.mount) view.mount(app, params);
     EW.reveal(app); EW.countUp(app);
     EW.renderCompareBar();

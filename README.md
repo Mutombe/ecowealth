@@ -1,4 +1,4 @@
-# EcoWealth — website demo (Bit Studio)
+# EcoWealth: website demo (Bit Studio)
 
 A static site with no build step. Open `index.html` directly, or serve the folder:
 

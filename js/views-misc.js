@@ -15,7 +15,7 @@
       <div class="container">
         <div class="stats-card" style="margin-top:calc(-1 * clamp(80px,10vw,120px));position:relative">
           <div class="intro-split"><div class="left"><h3>Engineered for Zimbabwe's grid, sun and seasons</h3></div>
-            <div class="right"><div class="h3"><b style="font-weight:500">Real systems</b> <span class="soft">keeping lights, cold rooms and clinics on through load-shedding.</span></div></div></div>
+            <div class="right"><div class="h3"><b style="font-weight:500">Real systems</b> <span class="soft">keeping homes and clinics running through load-shedding.</span></div></div></div>
           <div class="stats">
             <div class="stat"><b data-count="500" data-suffix="+">500+</b><span>Installations</span></div>
             <div class="stat"><b data-count="3500" data-suffix="kW">3,500kW</b><span>Capacity deployed</span></div>
@@ -49,7 +49,7 @@
       <div class="container">
         <div class="intro-split">
           <div class="left"><h3>Our mission</h3><p>To give communities across Zimbabwe and Africa clean, reliable and affordable energy. We do it through well-designed solar solutions and by driving investment into sustainable projects.</p></div>
-          <div class="right"><h2 class="h2"><b>Certified solar experts</b> who listen first, design second, and stay with you long after installation.</h2></div>
+          <div class="right"><h2 class="h2"><b>Certified solar engineers</b> who ask how you use power before they recommend anything.</h2></div>
         </div>
         <div class="bento mt-4">
           <div class="b-img"><img src="${EW.img('installer-sunset')}" alt="EcoWealth installer on a roof"></div>
@@ -95,7 +95,7 @@
           </form>
         </div>
         <div class="stack">
-          ${[['phone', 'Call us', EW.company.phone], ['whatsapp', 'WhatsApp', EW.company.phone], ['mail', 'Email', EW.company.email], ['pin', 'Visit', EW.company.address], ['clock', 'Hours', 'Mon–Fri 8:00–17:00 · Sat 8:00–13:00']]
+          ${[['phone', 'Call us', EW.company.phone], ['whatsapp', 'WhatsApp', EW.company.phone], ['mail', 'Email', EW.company.email], ['pin', 'Visit', EW.company.address], ['clock', 'Hours', 'Mon to Fri 8:00 to 17:00 · Sat 8:00 to 13:00']]
       .map(([ic, t, d]) => `<div class="card row" style="gap:14px;flex-wrap:nowrap"><span class="circle-go" style="width:44px;height:44px">${I(ic, 'sm')}</span><div><div class="tiny">${t}</div><div style="font-weight:500">${d}</div></div></div>`).join('')}
           <a class="btn btn-green btn-lg" target="_blank" rel="noopener" href="${EW.waLink('Hi EcoWealth, I\'d like to talk about solar.')}">${I('whatsapp', 'sm')} Chat on WhatsApp</a>
           <p class="placeholder-note" style="margin:0">Contact details are placeholders. Confirm with EcoWealth.</p>

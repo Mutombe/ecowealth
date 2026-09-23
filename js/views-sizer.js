@@ -1,4 +1,4 @@
-/* Solar Sizer — appliances in, recommended package out */
+/* Solar Sizer: appliances in, recommended package out */
 (function () {
   const I = EW.icon, S = EW.store;
   const HOURS = [0.25, 0.5, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 24];
@@ -56,7 +56,7 @@
           <div class="card">
             <div class="between"><div class="h4">Load-shedding per day</div><b class="h3 num" data-out-outage>${st.opts.outage} hrs</b></div>
             <input class="mt-2" type="range" min="0" max="18" step="1" value="${st.opts.outage}" data-outage>
-            <div class="between tiny"><span>None</span><span>Typical: 6–12 hrs</span><span>18 hrs</span></div>
+            <div class="between tiny"><span>None</span><span>Typical: 6 to 12 hrs</span><span>18 hrs</span></div>
           </div>
           <div><div class="h3">Start from a typical profile <span class="small">(optional)</span></div>
             <div class="row mt-2" style="gap:8px">${Object.entries(EW.presets).map(([k, p]) => `<button class="btn btn-outline btn-sm" data-preset="${k}">${p.label}</button>`).join('')}
@@ -268,7 +268,7 @@
         ${grid}
         <text x="${pl - 6}" y="${H - 6}" font-size="10" fill="#9aa09b" text-anchor="end">kW</text>
         <path d="${pvPath}" fill="#b6ec8e" opacity=".75"/>
-        ${sim.rows.map(r => `<rect x="${x(r.h) + bw * 0.22}" y="${y(r.load)}" width="${bw * 0.56}" height="${Math.max(0, pt + ch - y(r.load))}" rx="2" fill="#2b302c"><title>${String(r.h).padStart(2, '0')}:00 — use ${EW.fmt(r.load / 1000, 2)} kWh, solar ${EW.fmt(r.pv / 1000, 2)} kWh, battery ${Math.round(r.soc * 100)}%</title></rect>
+        ${sim.rows.map(r => `<rect x="${x(r.h) + bw * 0.22}" y="${y(r.load)}" width="${bw * 0.56}" height="${Math.max(0, pt + ch - y(r.load))}" rx="2" fill="#2b302c"><title>${String(r.h).padStart(2, '0')}:00: use ${EW.fmt(r.load / 1000, 2)} kWh, solar ${EW.fmt(r.pv / 1000, 2)} kWh, battery ${Math.round(r.soc * 100)}%</title></rect>
           ${r.imp > 5 ? `<rect x="${x(r.h) + bw * 0.22}" y="${y(r.imp)}" width="${bw * 0.56}" height="${pt + ch - y(r.imp)}" rx="2" fill="#e0a126"/>` : ''}`).join('')}
         <path d="${socPath}" fill="none" stroke="#6fc243" stroke-width="2.5" stroke-linejoin="round"/>
         ${[0, 6, 12, 18, 24].map(h => `<text x="${x(h)}" y="${H - 8}" font-size="10" fill="#9aa09b" text-anchor="middle">${String(h % 24).padStart(2, '0')}:00</text>`).join('')}

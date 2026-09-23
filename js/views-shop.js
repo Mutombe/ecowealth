@@ -1,4 +1,4 @@
-/* Shop — listing with URL-synced filters, quick view, product detail, compare, wishlist */
+/* Shop: listing with URL-synced filters, quick view, product detail, compare, wishlist */
 (function () {
   const I = EW.icon, S = EW.store;
   const PER_PAGE = 9;
@@ -84,7 +84,7 @@
               <button class="btn btn-outline btn-sm only-mobile" data-toggle-filters>${I('filter', 'sm')} Filters</button>
               <select class="select" data-sort style="width:auto;height:40px">
                 <option value="featured">Featured</option><option value="price">Price: low to high</option><option value="-price">Price: high to low</option>
-                <option value="rating">Top rated</option><option value="sale">Biggest discount</option><option value="name">Name A–Z</option></select>
+                <option value="rating">Top rated</option><option value="sale">Biggest discount</option><option value="name">Name A to Z</option></select>
               <div class="seg"><button data-view="grid" aria-label="Grid view">${I('grid', 'sm')}</button><button data-view="list" aria-label="List view">${I('list', 'sm')}</button></div>
             </div>
           </div>
@@ -136,7 +136,7 @@
         <div class="filter-group"><h6>Brand</h6><div class="stack-sm">${brands.map(br => `<label class="check"><input type="checkbox" data-brand="${EW.esc(br)}" ${f.brand.includes(br) ? 'checked' : ''}> ${br} <span class="tiny" style="margin-left:auto">${apply(b, 'brand').filter(p => p.brand === br).length}</span></label>`).join('')}</div></div>
         <div class="filter-group"><h6>Price (USD)</h6>
           <div class="row" style="gap:8px;flex-wrap:nowrap"><input class="input" type="number" min="0" placeholder="Min" value="${f.min || ''}" data-min style="height:40px"><span class="tiny">to</span><input class="input" type="number" min="0" placeholder="${priceMax}" value="${f.max || ''}" data-max style="height:40px"></div>
-          <div class="row mt-1" style="gap:6px">${[[0, 200], [200, 1000], [1000, 0]].map(([a, z]) => `<button class="chip" style="cursor:pointer" data-prange="${a}-${z}">${z ? `${EW.money(a)}–${EW.money(z)}` : `${EW.money(a)}+`}</button>`).join('')}</div></div>
+          <div class="row mt-1" style="gap:6px">${[[0, 200], [200, 1000], [1000, 0]].map(([a, z]) => `<button class="chip" style="cursor:pointer" data-prange="${a}-${z}">${z ? `${EW.money(a)} to ${EW.money(z)}` : `${EW.money(a)}+`}</button>`).join('')}</div></div>
         <div class="filter-group"><h6>Rating</h6><div class="stack-sm">${[4.8, 4.5, 4].map(r => `<label class="check"><input type="radio" name="rating" data-rating="${r}" ${f.rating === r ? 'checked' : ''}> <span class="stars">${EW.stars(r)}</span> ${r}+</label>`).join('')}
           <label class="check"><input type="radio" name="rating" data-rating="0" ${!f.rating ? 'checked' : ''}> Any rating</label></div></div>
         <div class="stack-sm"><label class="check"><input type="checkbox" data-sale ${f.sale ? 'checked' : ''}> On sale</label><label class="check"><input type="checkbox" data-stock ${f.stock ? 'checked' : ''}> In stock only</label></div>
@@ -177,7 +177,7 @@
       const chips = [];
       if (f.cat) chips.push(['cat', catName(f.cat)]); if (f.q) chips.push(['q', `“${f.q}”`]);
       f.brand.forEach(b => chips.push(['brand:' + b, b]));
-      if (f.min || f.max) chips.push(['price', `${EW.money(f.min)} – ${f.max ? EW.money(f.max) : 'any'}`]);
+      if (f.min || f.max) chips.push(['price', `${EW.money(f.min)} to ${f.max ? EW.money(f.max) : 'any'}`]);
       if (f.rating) chips.push(['rating', `${f.rating}★+`]); if (f.sale) chips.push(['sale', 'On sale']); if (f.stock) chips.push(['stock', 'In stock']);
       EW.$('[data-active]', root).innerHTML = chips.map(([k, t]) => `<span class="chip green">${EW.esc(t)} <button data-rm="${EW.esc(k)}" aria-label="Remove filter">${I('x', 'sm')}</button></span>`).join('');
       EW.$$('[data-rm]', root).forEach(b => b.onclick = () => {
@@ -240,7 +240,7 @@
             </div>
             <div class="grid-2" style="gap:10px">
               <div class="row small" style="gap:8px">${I('shield', 'sm')} ${p.specs.Warranty || 'Manufacturer warranty'}</div>
-              <div class="row small" style="gap:8px">${I('truck', 'sm')} Delivery in 1–3 days (Harare)</div>
+              <div class="row small" style="gap:8px">${I('truck', 'sm')} Delivery in 1 to 3 days (Harare)</div>
             </div>
           </div>
         </div>
@@ -257,7 +257,7 @@
             </div>
           </div>
           <div data-pane="2" hidden><div class="stack" style="max-width:760px">
-            <p class="small" style="margin:0">Harare deliveries arrive in 1–3 working days, and other provinces in 3–5. The fee is $5 plus $0.65/km from our Harare warehouse. Orders over ${EW.money(EW.FREE_DELIVERY)} ship free.</p>
+            <p class="small" style="margin:0">Harare deliveries arrive in 1 to 3 working days, and other provinces in 3 to 5. The fee is $5 plus $0.65/km from our Harare warehouse. Orders over ${EW.money(EW.FREE_DELIVERY)} ship free.</p>
             <p class="small" style="margin:0">Unused items in their original packaging can be returned within 14 days. Warranty claims are handled locally by EcoWealth. You don't need to ship anything overseas.</p></div></div>
         </div>
 
@@ -302,7 +302,7 @@
   EW.views.compare = () => {
     const ps = S.compare.map(id => EW.products.find(p => p.id === id)).filter(Boolean);
     const keys = [...new Set(ps.flatMap(p => Object.keys(p.specs)))];
-    const rows = [['Price', p => EW.money(p.price)], ['Rating', p => `${p.rating} ★ (${p.reviews})`], ['Brand', p => p.brand], ['Category', p => catName(p.cat)], ['Availability', p => p.stock ? `${p.stock} in stock` : 'Out of stock'], ...keys.map(k => [k, p => p.specs[k] || '—'])];
+    const rows = [['Price', p => EW.money(p.price)], ['Rating', p => `${p.rating} ★ (${p.reviews})`], ['Brand', p => p.brand], ['Category', p => catName(p.cat)], ['Availability', p => p.stock ? `${p.stock} in stock` : 'Out of stock'], ...keys.map(k => [k, p => p.specs[k] || 'Not listed'])];
     return `
     <section style="padding-top:calc(env(safe-area-inset-top,0px) + 110px)" class="section-tight">
       <div class="container">

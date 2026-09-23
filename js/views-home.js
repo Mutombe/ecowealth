@@ -1,4 +1,4 @@
-/* Home — mirrors the reference boards section by section */
+/* Home: mirrors the reference boards section by section */
 (function () {
   const I = EW.icon;
 
@@ -61,11 +61,11 @@
       <div class="container">
         <div class="intro-split reveal">
           <div class="left">
-            <h3>Transforming Homes with Tailored Solar Expertise</h3>
-            <p>We look at your actual appliances, how long you use them and your load-shedding hours. You get a system sized for your household, not a one-size-fits-all bundle.</p>
+            <h3>Solar designed around the way your home uses power</h3>
+            <p>We start with your appliances, how long each one runs and how many hours of load-shedding you get. Then we size the inverter, battery and panels to match.</p>
           </div>
           <div class="right">
-            <h2 class="h2"><b>Maximizing Energy</b> Savings Through Cutting-Edge Solar Solutions</h2>
+            <h2 class="h2"><b>Keep the fridge cold</b> and the Wi-Fi on through every power cut</h2>
           </div>
         </div>
         <div class="stats reveal">
@@ -80,7 +80,7 @@
     <section class="section" style="padding-top:0">
       <div class="container">
         <div class="sec-head reveal">
-          <h2 class="h2">Your <em class="it">primary</em> home deserves power too — time for a refresh?</h2>
+          <h2 class="h2">Your <em class="it">primary</em> home deserves reliable power too</h2>
           <a class="sec-note" href="#/projects">
             <span class="thumb"><img src="${EW.img('installer-sunset', 1)}" alt=""></span>
             <span>Every system is designed, installed and commissioned by certified EcoWealth technicians.</span>
@@ -104,7 +104,7 @@
             </div>
           </div>
         </div>
-        <p class="bento-caption reveal">Good solar design isn't about the biggest system. It's about the right one for how you actually live.</p>
+        <p class="bento-caption reveal">A system that is too big wastes money, and one that is too small runs flat before midnight. We size yours to fit.</p>
       </div>
     </section>
 
@@ -114,7 +114,7 @@
           <div class="sizer-teaser" style="display:grid;grid-template-columns:1.05fr 1fr;gap:0">
             <div style="padding:clamp(28px,5vw,56px)">
               <span class="eyebrow" style="color:#b6ec8e">Solar Sizer</span>
-              <h2 class="h2" style="margin-top:14px">Pick your appliances. <span class="accent">We'll size the system.</span></h2>
+              <h2 class="h2" style="margin-top:14px">Pick your appliances and <span class="accent">we'll size the system</span></h2>
               <p style="margin:16px 0 22px">Tap what you use every day to see a live estimate. The full Sizer adds quantities, hours, load-shedding and a 24-hour battery simulation.</p>
               <div class="row" style="gap:8px" data-quick>
                 ${quickApps.map(id => { const a = EW.appliances.find(x => x.id === id); return `<button class="chip" style="background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.15);height:36px;padding:0 14px;cursor:pointer" data-app="${id}">${I(a.ic, 'sm')} ${a.name.replace(/ \(.*\)/, '')}</button>`; }).join('')}
@@ -153,11 +153,11 @@
       <div class="container">
         <div class="intro-split reveal" style="margin-bottom:clamp(32px,5vw,56px)">
           <div class="left"><span class="eyebrow">Why EcoWealth</span></div>
-          <div class="right"><h2 class="h2"><b>Solar projects for all.</b> Designed well, installed properly, and financed so they're within reach.</h2></div>
+          <div class="right"><h2 class="h2"><b>Solar projects for all</b>, with financing for households that can't pay the full price upfront.</h2></div>
         </div>
         <div class="why">
           ${[
-        ['chart', 'Sized, not guessed', 'Our Sizer models your appliances hour by hour, so you don\'t overpay for a system you don\'t need.'],
+        ['chart', 'Sized from your appliances', 'Our Sizer models your appliances hour by hour, so you don\'t overpay for a system you don\'t need.'],
         ['shield', 'Tier-1 components', 'JA, Jinko, Deye, Sunsynk and Pylontech, with warranties of up to 25 years.'],
         ['wallet', 'Flexible financing', 'Spread the cost over 6, 12 or 24 months. 6-month plans are interest-free.'],
         ['wifi', 'Monitored 24/7', 'Every system comes online on day one. We catch faults before you notice them.'],
@@ -187,7 +187,7 @@
 
     <section class="section" style="padding-top:0">
       <div class="container">
-        <div class="sec-head reveal"><h2 class="h2">From first click to <span class="accent">first kilowatt</span></h2><p class="sec-note">Most homes are installed within 5–7 days of the site survey.</p></div>
+        <div class="sec-head reveal"><h2 class="h2">From first click to <span class="accent">first kilowatt</span></h2><p class="sec-note">Most homes are installed within 5 to 7 days of the site survey.</p></div>
         <div class="process">
           ${[['Size it', 'Pick your appliances in the Solar Sizer and get your recommended package.'], ['Survey', 'A technician visits to check your roof, wiring and shading. It\'s free in Harare.'], ['Install', 'A one-day install for most homes, with a certificate of compliance.'], ['Monitor', 'The app goes live and we monitor your system 24/7, with support for life.']]
         .map(([t, d]) => `<div class="card soft reveal"><div class="h4">${t}</div><p class="small" style="margin:8px 0 0">${d}</p></div>`).join('')}
@@ -201,7 +201,7 @@
           <img src="${EW.img('panels-sky')}" alt="">
           <span class="eyebrow" style="color:#b6ec8e">Financing available</span>
           <h2 class="h2" style="margin:14px 0">Own your power from <span class="accent">${EW.money(Math.round(EW.packages[1].price / 6))}/month</span></h2>
-          <p>Pay over 6 months interest-free, or over 12–24 months at a low flat rate. Your panels start saving from day one.</p>
+          <p>Pay over 6 months interest-free, or over 12 to 24 months at a low flat rate. Your panels start saving from day one.</p>
           <div class="row mt-3"><a class="btn btn-green btn-lg" href="#/sizer">Find my package ${I('arrowR', 'sm arrow')}</a><a class="btn btn-white btn-lg" href="#/financing">See financing</a></div>
         </div>
       </div>
@@ -214,8 +214,8 @@
           ${[
         ['How accurate is the Solar Sizer?', 'It uses the same method our engineers use: running watts, start-up surge, hours of use and when in the day you use each appliance, plus Zimbabwe\'s 5.5 peak sun hours. A free site survey confirms the final design before you pay.'],
         ['Will it run during load-shedding?', 'Yes. Hybrid inverters switch over in under 10 milliseconds, so lights, Wi-Fi and TVs won\'t even flicker.'],
-        ['Can I run my geyser on solar?', 'You can, but it needs a much bigger system. A solar geyser is usually the smarter buy. It takes 40–60% off a typical home\'s energy use.'],
-        ['What warranties do I get?', 'Panels 25 years (performance), lithium batteries 10 years, inverters 5–10 years, and our workmanship 12 months.'],
+        ['Can I run my geyser on solar?', 'You can, but it needs a much bigger system. A solar geyser is usually the smarter buy. It takes 40 to 60% off a typical home\'s energy use.'],
+        ['What warranties do I get?', 'Panels 25 years (performance), lithium batteries 10 years, inverters 5 to 10 years, and our workmanship 12 months.'],
         ['Which payment methods do you accept?', 'EcoCash, InnBucks, ZimSwitch, Visa/Mastercard, bank transfer, and a 20% deposit with the balance paid on installation.'],
       ].map(([q, a], i) => `<details ${i === 0 ? 'open' : ''}><summary>${q}</summary><p>${a}</p></details>`).join('')}
         </div>
@@ -259,7 +259,7 @@
       const t = EW.testimonials[i];
       q.style.opacity = 0;
       setTimeout(() => {
-        q.innerHTML = `<div class="stars" style="font-size:16px">★★★★★</div><h4>${t.title}</h4><p>“${t.text}”</p><div class="who row" style="gap:10px"><img class="who-av" src="assets/img/avatars/a${[1, 6, 3][i]}.jpg" alt="">— ${t.who}</div>`;
+        q.innerHTML = `<div class="stars" style="font-size:16px">★★★★★</div><h4>${t.title}</h4><p>“${t.text}”</p><div class="who row" style="gap:10px"><img class="who-av" src="assets/img/avatars/a${[1, 6, 3][i]}.jpg" alt="">${t.who}</div>`;
         q.style.transition = 'opacity .4s'; q.style.opacity = 1;
       }, 150);
       dots.innerHTML = EW.testimonials.map((_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('');

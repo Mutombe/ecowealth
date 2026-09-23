@@ -1,4 +1,4 @@
-/* EcoWealth demo data — packages, shop catalogue, appliances.
+/* EcoWealth demo data: packages, shop catalogue, appliances.
    Prices are illustrative USD demo figures, to be replaced with EcoWealth's price list. */
 window.EW = window.EW || {};
 
@@ -7,7 +7,7 @@ EW.company = {
   tagline: 'Solar energy projects for all',
   country: 'Zimbabwe',
   city: 'Harare',
-  // PLACEHOLDERS — confirm with EcoWealth before going live
+  // PLACEHOLDERS: confirm with EcoWealth before going live
   phone: '+263 77 000 0000',
   whatsapp: '263770000000',
   email: 'hello@ecowealth.co.zw',
@@ -73,7 +73,7 @@ EW.packages = [
     kva: 8, invW: 8000, batteryKWh: 15.36, battery: '3 × 48V 100Ah LiFePO4', panels: 16, panelW: 550, phase: '1P',
     price: 7900, img: 'panels-sky', gallery: ['panels-sky', 'battery-racks', 'engineer'],
     blurb: 'For large homes and home businesses. Runs heavy appliances at the same time, day and night.',
-    powers: ['2–3 ACs', 'Electric stove (1–2 plates)', 'Borehole + pool pumps', 'Workshop tools', 'Multiple fridges'],
+    powers: ['2 to 3 ACs', 'Electric stove (1 to 2 plates)', 'Borehole + pool pumps', 'Workshop tools', 'Multiple fridges'],
     cant: ['Welding equipment'],
     features: ['8kW Sunsynk hybrid', '8.8kWp PV array', '15kWh lithium bank', 'Net-metering ready'],
   },
@@ -110,7 +110,7 @@ EW.packages.forEach(p => {
   p.includes = [
     { ic: 'panel', name: 'Solar panels', desc: `${p.panels} × ${p.panelW}W tier-1 mono PERC panels (${p.pvKW}kWp).`, w: '25-year performance warranty' },
     { ic: 'bolt', name: 'Hybrid inverter', desc: `${p.kva}kVA ${p.phase} hybrid inverter with built-in MPPT.`, w: '5-year warranty' },
-    { ic: 'battery', name: 'Battery storage', desc: `${p.battery} — ${p.batteryKWh}kWh, 6000+ cycles.`, w: '10-year warranty' },
+    { ic: 'battery', name: 'Battery storage', desc: `${p.battery}, ${p.batteryKWh}kWh, 6000+ cycles.`, w: '10-year warranty' },
     { ic: 'tool', name: 'Installation', desc: 'Mounting, DC/AC protection, cabling, earthing and commissioning.', w: '12-month workmanship' },
     { ic: 'wifi', name: 'Monitoring', desc: 'Wi-Fi dongle and app setup. We watch your system with you.', w: 'Included' },
   ];
@@ -214,10 +214,10 @@ EW.products = [
     desc: 'The same parts as our Grove package, supplied without installation.' },
   // geysers
   { id: 'geyser-150', cat: 'geysers', brand: 'Ecosolar', name: '150L Low-pressure Solar Geyser', price: 420, rating: 4.6, reviews: 58, stock: 25, imgs: ['roof-house-sunset', 'sun-sky'],
-    specs: { Capacity: '150 L', Type: 'Gravity / non-pressure', Tubes: '15 evacuated tubes', 'Suits': '3–4 people', Warranty: '5 years' },
+    specs: { Capacity: '150 L', Type: 'Gravity / non-pressure', Tubes: '15 evacuated tubes', 'Suits': '3 to 4 people', Warranty: '5 years' },
     desc: 'Takes the geyser off your inverter. That is usually the biggest saving on your electricity bill.' },
   { id: 'geyser-200p', cat: 'geysers', brand: 'Suntask', name: '200L High-pressure Smart Solar Geyser', price: 1180, was: 1290, rating: 4.8, reviews: 21, stock: 7, badge: 'Smart', imgs: ['roof-tiles', 'sun-sky'],
-    specs: { Capacity: '200 L', Type: 'Pressurised (flat plate)', Controller: 'Smart timer, 5 schedules', 'Suits': '4–6 people', Warranty: '10 years tank' },
+    specs: { Capacity: '200 L', Type: 'Pressurised (flat plate)', Controller: 'Smart timer, 5 schedules', 'Suits': '4 to 6 people', Warranty: '10 years tank' },
     desc: 'Mains-pressure hot water, with a smart timer so the element only switches on when you need it.' },
   // mounting
   { id: 'mount-ibr', cat: 'mounting', brand: 'K2', name: 'IBR / Corrugated Roof Mount Kit (4 panels)', price: 95, rating: 4.7, reviews: 40, stock: 80, imgs: ['drill-mount', 'roof-install-metal'],
@@ -227,7 +227,7 @@ EW.products = [
     specs: { Fits: 'Concrete & clay tile', Panels: '4 portrait', Material: 'Stainless hooks + aluminium rail' },
     desc: 'Adjustable stainless hooks. No tile cutting needed on most profiles.' },
   // protection
-  { id: 'pv-cable', cat: 'protection', brand: 'Eland', name: '6mm² PV Solar Cable — 100m (Red/Black)', price: 128, rating: 4.8, reviews: 66, stock: 55, imgs: ['engineer'],
+  { id: 'pv-cable', cat: 'protection', brand: 'Eland', name: '6mm² PV Solar Cable, 100m (Red/Black)', price: 128, rating: 4.8, reviews: 66, stock: 55, imgs: ['engineer'],
     specs: { Size: '6 mm²', Length: '2 × 50 m', Rating: '1500 V DC, UV-resistant', Standard: 'EN 50618' },
     desc: 'Tinned copper PV cable. UV-rated for 25 years outdoors.' },
   { id: 'combiner', cat: 'protection', brand: 'Schneider', name: 'DC Combiner & Surge Protection Box', price: 185, rating: 4.7, reviews: 19, stock: 3, imgs: ['string-inverters', 'inverter-room'],
@@ -235,7 +235,7 @@ EW.products = [
     desc: 'Protects your inverter from lightning surges, which are common during the Zimbabwe rainy season.' },
   // portable
   { id: 'station-1k', cat: 'portable', brand: 'EcoFlow', name: 'EcoFlow River 2 Pro Power Station', price: 499, was: 579, rating: 4.8, reviews: 84, stock: 30, imgs: ['home-battery-ext', 'sun-sky'],
-    specs: { Capacity: '768 Wh LiFePO4', Output: '800 W (X-Boost 1600 W)', 'Solar input': '220 W', Charge: '0–100% in 70 min (AC)' },
+    specs: { Capacity: '768 Wh LiFePO4', Output: '800 W (X-Boost 1600 W)', 'Solar input': '220 W', Charge: '0 to 100% in 70 min (AC)' },
     desc: 'Portable power for the office, the farm or a weekend away. Recharges from a solar panel.' },
   { id: 'flood-200', cat: 'portable', brand: 'EcoWealth', name: '200W Solar Flood Light with Remote', price: 58, rating: 4.4, reviews: 131, stock: 150, imgs: ['sun-sky'],
     specs: { Output: '200 W equiv.', Battery: 'LiFePO4, 12 h runtime', Sensor: 'Dusk-to-dawn', Rating: 'IP66' },
@@ -279,7 +279,7 @@ EW.appliances = [
   { id: 'blanket', room: 'bedroom', name: 'Electric blanket', w: 120, h: 2, surge: 1, c: .4, win: 'night', ic: 'bed' },
   { id: 'chargers', room: 'bedroom', name: 'Phone chargers', w: 15, h: 3, surge: 1, c: .5, win: 'night', ic: 'phone', qty: 4 },
   { id: 'hairdryer', room: 'bedroom', name: 'Hair dryer', w: 1800, h: .2, surge: 1, c: .1, win: 'morning', ic: 'wind', heavy: true, alt: 'Fine to use for short spells. Just not together with the kettle.' },
-  { id: 'geyser', room: 'bathroom', name: 'Electric geyser 150L', w: 3000, h: 3, surge: 1, c: .5, win: 'morning', ic: 'drop', heavy: true, alt: 'Switch to a solar geyser. This usually takes out 40–60% of a home\'s energy use.' },
+  { id: 'geyser', room: 'bathroom', name: 'Electric geyser 150L', w: 3000, h: 3, surge: 1, c: .5, win: 'morning', ic: 'drop', heavy: true, alt: 'Switch to a solar geyser. This usually takes out 40 to 60% of a home\'s energy use.' },
   { id: 'washer', room: 'bathroom', name: 'Washing machine', w: 500, h: 1, surge: 2, c: .3, win: 'day', ic: 'wash' },
   { id: 'dryer', room: 'bathroom', name: 'Tumble dryer', w: 2500, h: 1, surge: 1.2, c: .2, win: 'day', ic: 'wash', heavy: true, alt: 'Line-dry in Zimbabwe\'s sun, or only run the dryer at midday.' },
   { id: 'iron', room: 'bathroom', name: 'Iron', w: 1200, h: .5, surge: 1, c: .2, win: 'day', ic: 'iron' },
@@ -304,12 +304,12 @@ EW.presets = {
 };
 
 EW.testimonials = [
-  { title: 'Load-shedding is a thing of the past', text: 'We told EcoWealth what we run at home and they came back with a system that fitted our budget. Eight months on, we haven\'t noticed a single power cut.', who: 'Tendai M., Borrowdale — Grove 5kVA' },
+  { title: 'Load-shedding is a thing of the past', text: 'We told EcoWealth what we run at home and they came back with a system that fitted our budget. Eight months on, we haven\'t noticed a single power cut.', who: 'Tendai M., Borrowdale (Grove 5kVA)' },
   { title: 'Our clinic never goes dark', text: 'Vaccines have to stay cold, whatever ZESA is doing. The Evergreen system paid for itself in diesel savings in under three years.', who: 'Dr. R. Moyo, Chitungwiza Family Clinic' },
-  { title: 'Clear pricing and good follow-up', text: 'The quote matched the final invoice exactly. The team explained the app to us and they still check in every few months.', who: 'Chipo & Farai N., Ruwa — Sprout 3kVA' },
+  { title: 'Clear pricing and good follow-up', text: 'The quote matched the final invoice exactly. The team explained the app to us and they still check in every few months.', who: 'Chipo & Farai N., Ruwa (Sprout 3kVA)' },
 ];
 
-EW.projects = [ // sample showcase — replace with EcoWealth's real installations
+EW.projects = [ // sample showcase: replace with EcoWealth's real installations
   { img: 'roof-commercial', t: 'Commercial rooftop', s: '10kVA hybrid · sample', seg: 'business' },
   { img: 'roof-house-sunset', t: 'Suburban family home', s: '5kVA Grove · sample', seg: 'home' },
   { img: 'field-inverters', t: 'Irrigation farm', s: '30kW ground mount · sample', seg: 'farm' },

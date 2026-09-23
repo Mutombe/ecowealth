@@ -40,7 +40,7 @@
           <div class="stack">
             <div class="card stack-sm" style="padding:22px">
               <div class="field"><label>Delivery area</label>
-                <select class="select" data-zone>${EW.zones.map(z => `<option value="${z.id}" ${S.zone === z.id ? 'selected' : ''}>${z.name}${z.km ? ` — ${EW.money(EW.deliveryFee(z.km))}` : ' — Free'}</option>`).join('')}</select>
+                <select class="select" data-zone>${EW.zones.map(z => `<option value="${z.id}" ${S.zone === z.id ? 'selected' : ''}>${z.name}${z.km ? ` · ${EW.money(EW.deliveryFee(z.km))}` : ' · Free'}</option>`).join('')}</select>
                 <span class="tiny">$5 + $0.65/km from Harare · Free over ${EW.money(EW.FREE_DELIVERY)}</span></div>
               <div class="field mt-1"><label>Coupon code</label>
                 <form class="row" style="gap:8px;flex-wrap:nowrap" data-coupon><input class="input" name="c" placeholder="Try SUNNY10" value="${S.coupon || ''}" style="height:42px"><button class="btn btn-outline">Apply</button></form></div>
@@ -97,10 +97,10 @@
             <div class="field full"><label>Email</label><input class="input" type="email" name="email" value="${v('email')}" autocomplete="email" required></div>
             <div class="full"><div class="h4" style="margin:10px 0 12px">${hasPkg ? 'Installation address' : 'Delivery method'}</div>
               ${hasPkg ? '' : `<div class="tiles" data-method style="grid-template-columns:1fr 1fr">
-                <button type="button" class="tile ${co.method === 'delivery' ? 'on' : ''}" data-v="delivery"><b>${I('truck', 'sm')} Deliver to me</b><span>1–3 days in Harare · 3–5 elsewhere</span></button>
+                <button type="button" class="tile ${co.method === 'delivery' ? 'on' : ''}" data-v="delivery"><b>${I('truck', 'sm')} Deliver to me</b><span>1 to 3 days in Harare · 3 to 5 elsewhere</span></button>
                 <button type="button" class="tile ${co.method === 'pickup' ? 'on' : ''}" data-v="pickup"><b>${I('pin', 'sm')} Collect</b><span>EcoWealth warehouse, Harare · Free</span></button></div>`}</div>
             <div class="full form-grid" data-addr ${!hasPkg && co.method === 'pickup' ? 'hidden' : ''} style="gap:14px">
-              <div class="field full"><label>Area</label><select class="select" name="zone">${EW.zones.filter(z => z.km).map(z => `<option value="${z.id}" ${S.zone === z.id ? 'selected' : ''}>${z.name} — ${S.subtotal() >= EW.FREE_DELIVERY ? 'Free' : EW.money(EW.deliveryFee(z.km))}</option>`).join('')}</select></div>
+              <div class="field full"><label>Area</label><select class="select" name="zone">${EW.zones.filter(z => z.km).map(z => `<option value="${z.id}" ${S.zone === z.id ? 'selected' : ''}>${z.name} · ${S.subtotal() >= EW.FREE_DELIVERY ? 'Free' : EW.money(EW.deliveryFee(z.km))}</option>`).join('')}</select></div>
               <div class="field full"><label>Street address</label><input class="input" name="addr" value="${v('addr')}" placeholder="House number, street, suburb" autocomplete="street-address"></div>
               <div class="field"><label>City</label><input class="input" name="city" value="${v('city') || 'Harare'}"></div>
               <div class="field"><label>${hasPkg ? 'Preferred install date' : 'Delivery notes'}</label><input class="input" name="note" ${hasPkg ? `type="date" min="${new Date(Date.now() + 3 * 864e5).toISOString().slice(0, 10)}"` : 'placeholder="Gate code, landmarks…"'} value="${v('note')}"></div>
@@ -212,7 +212,7 @@
     if (!o) return EW.views.notFound();
     const inst = o.method === 'install';
     const ev = inst
-      ? [['Order confirmed', 'Payment received. Your order is booked.', 1], ['Site survey', 'An engineer will call within 2 working hours to book a visit.', 0], ['Installation', o.customer.note ? `Preferred date: ${new Date(o.customer.note).toLocaleDateString('en-GB')}` : 'Usually 5–7 days after the survey', 0], ['Commissioned', 'The monitoring app goes live and you get your certificate', 0]]
+      ? [['Order confirmed', 'Payment received. Your order is booked.', 1], ['Site survey', 'An engineer will call within 2 working hours to book a visit.', 0], ['Installation', o.customer.note ? `Preferred date: ${new Date(o.customer.note).toLocaleDateString('en-GB')}` : 'Usually 5 to 7 days after the survey', 0], ['Commissioned', 'The monitoring app goes live and you get your certificate', 0]]
       : [['Order confirmed', 'Payment received', 1], ['Packed', 'Checked and packed at our Harare warehouse', 0], [o.method === 'pickup' ? 'Ready for collection' : 'Out for delivery', o.method === 'pickup' ? 'We\'ll SMS you when it\'s ready' : 'The driver will call ahead', 0], ['Delivered', '', 0]];
     return `
     <section style="padding-top:calc(env(safe-area-inset-top,0px) + 120px)" class="section-tight">

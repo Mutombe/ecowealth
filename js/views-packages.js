@@ -104,7 +104,7 @@
       ['Daily solar yield', p => `≈ ${EW.fmt(p.pvKW * EW.K.PSH * EW.K.PV_DERATE)} kWh`, 'max', p => p.pvKW],
       ['Monthly (12 mo)', p => EW.money(Math.round(p.price * 1.05 / 12)) + '/mo', 'min', p => p.price],
       ['Powers', p => p.powers.join(', ')],
-      ['Not suited to', p => p.cant.length ? p.cant.join(', ') : '—'],
+      ['Not suited to', p => p.cant.length ? p.cant.join(', ') : 'Nothing listed'],
     ];
     return `<div class="table-wrap"><table class="cmp">
       <thead><tr><th></th>${ps.map(p => `<th><div class="ph"><img src="${EW.img(p.img, 1)}" alt=""></div><div class="h4">${p.full}</div><a class="btn btn-lime btn-xs mt-1" href="#/packages/${p.slug}">View</a></th>`).join('')}</tr></thead>
@@ -166,7 +166,7 @@
 
         <aside class="sticky-buy stack">
           <div class="card" style="padding:24px">
-            <div class="between"><span class="small">Supply &amp; installation</span><span class="stock">${p.segment === 'home' ? 'Installs in 5–7 days' : 'Site survey required'}</span></div>
+            <div class="between"><span class="small">Supply &amp; installation</span><span class="stock">${p.segment === 'home' ? 'Installs in 5 to 7 days' : 'Site survey required'}</span></div>
             <div class="price mt-1" style="font-size:36px;letter-spacing:-.03em" data-total>${EW.money(p.price)}</div>
             <div class="small">${p.was ? `<s>${EW.money(p.was)}</s> · <span class="accent">You save ${EW.money(p.was - p.price)}</span> · ` : ''}Price includes installation within 30km of Harare</div>
             <hr class="divider" style="margin:18px 0">
@@ -243,7 +243,7 @@
           <div class="stat"><b>${p.kva}kVA</b><span>Inverter</span></div><div class="stat"><b>${p.pvKW}kWp</b><span>${p.panels} panels</span></div>
           <div class="stat"><b>${p.batteryKWh}kWh</b><span>Storage</span></div><div class="stat"><b>${EW.money(p.price)}</b><span>Installed price</span></div></div>
         <div class="grid-2 mt-3">
-          <div><div class="h4" style="margin-bottom:10px">What's included</div><ul class="check-list">${p.includes.map(x => `<li><span><b>${x.name}</b> — ${x.desc} <span class="tiny">(${x.w})</span></span></li>`).join('')}</ul></div>
+          <div><div class="h4" style="margin-bottom:10px">What's included</div><ul class="check-list">${p.includes.map(x => `<li><span><b>${x.name}</b>: ${x.desc} <span class="tiny">(${x.w})</span></span></li>`).join('')}</ul></div>
           <div><div class="h4" style="margin-bottom:10px">What it can power</div><ul class="check-list">${p.powers.map(x => `<li>${x}</li>`).join('')}</ul></div>
         </div>
         <p class="tiny mt-3">Final pricing is confirmed after a free site survey and depends on delivery location. Tier-1 components only · 12-month workmanship warranty · ${EW.company.phone} · ${EW.company.email}</p>
@@ -266,7 +266,7 @@
       <div class="container fin">
         <div class="card stack" style="padding:28px">
           <div class="field"><label>Choose a package, or enter an amount</label>
-            <select class="select" data-pk><option value="">Custom amount</option>${EW.packages.map(p => `<option value="${p.price}">${p.full} — ${EW.money(p.price)}</option>`).join('')}</select></div>
+            <select class="select" data-pk><option value="">Custom amount</option>${EW.packages.map(p => `<option value="${p.price}">${p.full} · ${EW.money(p.price)}</option>`).join('')}</select></div>
           <div class="field"><label>System cost <b class="num" data-amt-out style="float:right"></b></label><input type="range" min="500" max="35000" step="50" data-amt></div>
           <div class="field"><label>Deposit <b class="num" data-dep-out style="float:right"></b></label><input type="range" min="0" max="50" step="5" value="20" data-dep></div>
           <div class="field"><label>Repayment term</label>

@@ -14,7 +14,7 @@
     night: h => (h >= 19 || h < 6 ? 1 : 0),
   };
 
-  // normalised clear-sky PV shape, 6:00–18:00, integrates to PSH per kWp
+  // normalised clear-sky PV shape, 6:00 to 18:00, integrates to PSH per kWp
   const SOLAR = (() => {
     const raw = [];
     for (let h = 0; h < 24; h++) {
