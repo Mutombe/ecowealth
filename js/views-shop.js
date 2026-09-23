@@ -7,7 +7,8 @@
   const stockHTML = p => p.stock === 0 ? '<span class="stock out">Out of stock</span>' : p.stock <= 10 ? `<span class="stock low">Only ${p.stock} left</span>` : '<span class="stock">In stock</span>';
 
   EW.productCard = (p, cls = '') => `
-    <article class="l-card ${cls}" data-pid="${p.id}">
+    <article class="l-card ambient-card ${cls}" data-pid="${p.id}">
+      <img class="ambient-bleed" src="${EW.img(p.img, 1)}" alt="" aria-hidden="true" loading="lazy">
       <div class="media">
         <a href="#/shop/${p.id}"><img src="${EW.img(p.img, 1)}" alt="${EW.esc(p.name)}" loading="lazy"></a>
         <div class="tl">${p.was ? `<span class="chip danger">−${pct(p)}%</span>` : ''}${p.badge ? `<span class="chip glassy">${p.badge}</span>` : ''}${p.stock === 0 ? '<span class="chip dark">Sold out</span>' : ''}</div>
