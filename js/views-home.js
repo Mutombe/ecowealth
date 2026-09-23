@@ -30,17 +30,8 @@
               <div><b>1,200+</b><small>Powered households</small></div>
             </div>
           </div>
-          <span class="rating-pill glass only-sm"><span class="stars">★</span> 4.9 <small>· 380 reviews</small></span>
+          <span class="proof-pill glass only-sm">${EW.avatars(4)}<span><b>1,200+</b> homes powered</span><span class="pp-rate"><span class="stars">★</span> 4.9</span></span>
         </div>
-
-        <a class="hero-float only-sm" href="#/packages/${hot.slug}">
-          <span class="hf-card">
-            <span class="hf-ic">${I('bolt', 'sm')}</span>
-            <span><span class="t">24 hours electricity</span><span class="s">${hot.full}</span></span>
-            <span class="p">${EW.money(hot.price)}</span>
-          </span>
-          <span class="hf-line"></span><span class="hf-dot"></span>
-        </a>
 
         <div class="hero-main">
           <span class="hero-eyebrow glass only-sm">${I('sun', 'sm')} Solar sized to your appliances</span>

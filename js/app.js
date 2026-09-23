@@ -62,6 +62,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     EW.renderHeader();
     EW.renderFooter();
+    EW.initWaFab();
     EW.$('#scrim').onclick = EW.closeOverlays;
     render();
   });
